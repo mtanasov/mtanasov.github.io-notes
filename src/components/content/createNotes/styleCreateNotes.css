@@ -1,0 +1,97 @@
+#createNotes {
+   background-color: var(--headerBgrClr);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+#group1 {
+   background: none;
+}
+
+#titleCreateNotes {
+   resize: none;
+}
+
+#textCreateNotes {
+   resize: none;
+   background: url(../../../../img/bgr.png);
+   background-size: 115% 252%;
+   background-position: -200px -30px;
+   font-size: 24px;
+   font-family: "Mono";
+   line-height: 22px;
+   padding: 15px 40px 0px 40px;
+   margin: 0px 0px 0px 0px;
+   border-radius: 25px;
+}
+
+#settings {
+   display: flex;
+   width: 770px;
+   margin: 10px 0 10px 0;
+   justify-content: space-evenly;
+}
+
+#settings>* {
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+#dateEvent {
+   padding: 5px 5px 5px 10px;
+   border: 1px solid black;
+   background-color: var(--bgrClrCreateNotes)
+}
+
+#timeEvent {
+   padding: 0px 5px 0px 8px;
+   border: 1px solid black;
+   background-color: var(--bgrClrCreateNotes)
+}
+
+#locationEvent {
+   text-align: center;
+   background-color: var(--bgrClrCreateNotes);
+   border: 1px solid black;
+}
+
+#priority>* {
+   display: inline-block;
+   width: 20px;
+   height: 20px;
+   border: 1px solid black;
+   vertical-align: middle;
+   margin: 5px;
+   border-radius: 20px;
+}
+
+#blue {
+   background-color: var(--pColorBlue);
+}
+
+#yellow {
+   background-color: var(--pColorYellow);
+}
+
+#orange {
+   background-color: var(--pColorOrange);
+}
+
+#pink {
+   background-color: var(--pColorPink);
+}
+
+
+
+#buttonSave {
+   border: 2px solid gray;
+   padding: 1px 5px;
+   background-color: hsl(200 95% 85% / 1);
+}
+
+#buttonClear {
+   border: 2px solid gray;
+   padding: 1px 5px;
+   background-color: hsl(354 95% 85% / 1);
+}

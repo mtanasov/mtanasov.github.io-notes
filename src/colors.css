@@ -1,0 +1,10 @@
+html,
+body {
+   --headerBgrClr: hsl(73deg 23% 84%);
+   --titleClr: hsl(91deg 54% 41%);
+   --bgrClrCreateNotes: hsl(52deg 95% 85%);
+   --pColorBlue: hsl(199deg 63% 62%);
+   --pColorYellow: hsl(58deg 73% 78%);
+   --pColorOrange: hsl(29deg 89% 64%);
+   --pColorPink: hsl(338deg 79% 70%);
+}
