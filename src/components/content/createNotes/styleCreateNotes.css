@@ -29,13 +29,17 @@
 #settings {
    display: flex;
    width: 770px;
-   margin: 10px 0 10px 0;
+   height: 22px;
+   margin: 5px 0;
    justify-content: space-evenly;
 }
 
 #settings>* {
    border-radius: 10px;
    cursor: pointer;
+   font-family: "PoiretOne";
+   font-size: 14px;
+   font-weight: 700
 }
 
 #dateEvent {
@@ -54,12 +58,13 @@
    text-align: center;
    background-color: var(--bgrClrCreateNotes);
    border: 1px solid black;
+
 }
 
 #priority>* {
    display: inline-block;
-   width: 20px;
-   height: 20px;
+   width: 15px;
+   height: 15px;
    border: 1px solid black;
    vertical-align: middle;
    margin: 5px;
@@ -82,16 +87,14 @@
    background-color: var(--pColorPink);
 }
 
-
-
 #buttonSave {
    border: 2px solid gray;
-   padding: 1px 5px;
+   padding: 0px 5px;
    background-color: hsl(200 95% 85% / 1);
 }
 
 #buttonClear {
    border: 2px solid gray;
-   padding: 1px 5px;
+   padding: 0px 5px;
    background-color: hsl(354 95% 85% / 1);
 }

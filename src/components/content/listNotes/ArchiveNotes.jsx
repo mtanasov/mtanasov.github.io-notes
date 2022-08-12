@@ -1,11 +1,12 @@
 import React from "react";
+import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 
-export class ArchiveNotes extends React.Component {
-   render() {
-      return (
-         <div>
-            Archive
-         </div>
-      )
-   }
+export function ArchiveNotes() {
+   return (
+
+      <div>
+         <div>Archive</div>
+         <Link to="/"> Actual</Link>
+      </div>
+   )
 }

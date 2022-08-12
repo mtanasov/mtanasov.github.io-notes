@@ -3,7 +3,7 @@ import "../../colors.css"
 export const styleHeader = {
    display: "flex",
    width: "100vw",
-   height: "7vmin",
+   height: "50px",
    color: "var(--titleClr)",
    backgroundColor: "var(--headerBgrClr)",
    justifyContent: "space-around",
@@ -12,14 +12,7 @@ export const styleHeader = {
    fontFamily: "PoiretOne",
 }
 
-export const styleSearch = {
-   height: "20px",
-   borderRadius: "8px",
-   padding: "0px 10px",
-   border: "1px solid black",
-   backgroundColor: "var(--bgrClrCreateNotes)"
 
-}
 
 export const styleCurrentDate = {
    generalStyle: {
