@@ -93,6 +93,9 @@ export function TheNote(props) {
             <span style={style.timeEvent}>{timeE}</span>
             <span style={style.localEvent}>{location}</span>
             <button style={style.btnDelete} onClick={
+               // (props) => {
+               //    dispatch(props.onClick)
+               // }
                () => {
                   dispatch(removeNotes(id))
                }

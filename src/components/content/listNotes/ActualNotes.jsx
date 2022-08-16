@@ -1,10 +1,12 @@
 import React from "react";
-import { ReactDOM } from "react-dom/client";
+// import { ReactDOM } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 import { TheNote } from "./TheNote";
 import { useSelector } from "react-redux/es/exports";
+import { removeNotes } from "../../../reduxSlice/saveSlice";
 
-import { arrNotes } from "../../../reduxSlice/ssd"
+
+import { arrNotes, toArray } from "../../../reduxSlice/ssd"
 
 export function ActualNotes() {
    const todo = useSelector((state) => state.note.todos)
@@ -29,7 +31,28 @@ export function ActualNotes() {
       archiveLink: {
          textDecoration: "none",
          color: "var(--titleClr)",
-         letterSpacing: "2px"
+         letterSpacing: "2px",
+      }
+   }
+
+   const Render = () => {
+      if (localStorage.getItem("actualNotes")) {
+         return (
+            todo.map((element) =>
+               <div key={element.id}>
+                  <TheNote
+                     id={element.id}
+                     txtN={element.txtN}
+                     timeE={element.timeE}
+                     dateE={element.dateE}
+                     placeE={element.placeE}
+                     dateCN={element.dateCN}
+                     bookmark={element.bookmark}
+                     onClick={removeNotes(element.id)} />
+               </div>)
+         )
+      } else {
+         return <> Тут будут ваши заметки</>
       }
    }
 
@@ -42,19 +65,7 @@ export function ActualNotes() {
             <input type="text" placeholder="поиск" style={style.search} />
             {/* </div> */}
          </div>
-         {
-            todo.map((element) =>
-               <div key={element.id}>
-                  <TheNote
-                     id={element.id}
-                     txtN={element.txtN}
-                     timeE={element.timeE}
-                     dateE={element.dateE}
-                     placeE={element.placeE}
-                     dateCN={element.dateCN}
-                     bookmark={element.bookmark} />
-               </div>)
-         }
+         <Render />
       </div>
    )
 }

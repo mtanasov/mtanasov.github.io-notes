@@ -12,8 +12,6 @@ export function CreateNotes() {
    const bookmark = useSelector((state) => state.note.bookmark)
    const dateCreate = useSelector((state) => state.note.dateCN)
 
-
-
    const dispatch = useDispatch()
 
    let iTxt = React.createRef();
@@ -29,6 +27,14 @@ export function CreateNotes() {
       return iBookMark
    }
 
+   const clearInput = () => {
+      iTxt.current.value = ""
+      iDate.current.value = ""
+      iTime.current.value = ""
+      iEPlace.current.value = ""
+      iBookMark = "hsl(58deg 73% 78%)"
+   }
+
    return (
       <div id="createNotes">
          <div id="group1">
@@ -40,10 +46,10 @@ export function CreateNotes() {
             <input id="timeEvent" type="time" ref={iTime} />
             <input id="locationEvent" type="text" ref={iEPlace} placeholder="место события" />
             <span id="priority">
-               <div id="blue" style={{ backgroundColor: "hsl(199deg 63% 62%)" }} onClick={(event) => bgrClr(event)} ></div>
-               <div id="yellow" style={{ backgroundColor: "hsl(58deg 73% 78%)" }} onClick={(event) => bgrClr(event)}></div>
-               <div id="orange" style={{ backgroundColor: "hsl(29deg 89% 64%)" }} onClick={(event) => bgrClr(event)}></div>
-               <div id="pink" style={{ backgroundColor: "hsl(338deg 79% 70%)" }} onClick={(event) => bgrClr(event)}></div>
+               <div id="blue" style={{ backgroundColor: "var( --pColorBlue)" }} onClick={(event) => bgrClr(event)} ></div>
+               <div id="yellow" style={{ backgroundColor: "var(--pColorYellow)" }} onClick={(event) => bgrClr(event)}></div>
+               <div id="orange" style={{ backgroundColor: "var( --pColorOrange)" }} onClick={(event) => bgrClr(event)}></div>
+               <div id="pink" style={{ backgroundColor: "var(--pColorPink)" }} onClick={(event) => bgrClr(event)}></div>
             </span>
             <span id="buttonSave" onClick={
                () => {
@@ -58,23 +64,10 @@ export function CreateNotes() {
                         id: v4(),
                      }
                   ));
-                  iTxt.current.value = ""
-                  iDate.current.value = ""
-                  iTime.current.value = ""
-                  iEPlace.current.value = ""
-                  iBookMark = "hsl(58deg 73% 78%)"
-                  /*  console.log({
-                      txtN: iTxt.current.value,
-                      dateE: iDate.current.value,
-                      timeE: iTime.current.value,
-                      placeE: iEPlace.current.value,
-                      bookmark: iBookMark,
-                      dateCN: new Date().toLocaleDateString() + " " + new Date().toLocaleTimeString(),
-                      id: String(Date.now()),
-                   }) */
+                  clearInput()
                }
             }>  Сохранить </span>
-            <span id="buttonClear"> Очистить </span>
+            <span id="buttonClear" onClick={() => { clearInput() }}> Очистить </span>
          </div>
 
       </div>

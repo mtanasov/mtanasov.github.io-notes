@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { arrNotes } from "./ssd";
+import { ActualNotes } from "../components/content/listNotes/ActualNotes";
+import { arrNotes, toJSON, toArray } from "./ssd";
 
 const initialState = {
-   todos: arrNotes
+   todos: toArray("actualNotes")
 }
 
 // const initialState = {
@@ -20,13 +21,32 @@ export const notes = createSlice({
    initialState,
    reducers: {
       addNotes: (state, action) => {
-         state.note = action.payload
+         if (!localStorage.getItem("actualNotes")) {
+            localStorage.setItem("archiveNotes", JSON.stringify([]))
+            state.todos = []
+            state.todos.push(action.payload)
+            toJSON(state.todos, "actualNotes")
+         } else {
+            const array = toArray("actualNotes"); //преобразовал JSON в массив
+            state.todos = array;
+            state.todos.unshift(action.payload)
+            toJSON(state.todos, "actualNotes")
+
+         }
+         // state.note = action.payload 
          // arrNotes.push(action.payload)
-         state.todos.unshift(action.payload)
+         // state.todos.unshift(action.payload)
+         // toJSON(state.todos)
          // console.log(action.payload);
       },
       removeNotes: (state, action) => { //новый массив без удаленной заметки
-         state.todos = state.todos.filter((todos) => todos.id !== action.payload)
+         const array = toArray("actualNotes") //получил массив актуальных заметок
+         const el = array.findIndex((el) => el.id === action.payload) // индекс элемента в массиве
+         const arrayArchive = toArray("archiveNotes") //получил массив арх.заметок
+         arrayArchive.push(state.todos[el]) // добавил заметку в массив архива
+         toJSON(arrayArchive, "archiveNotes") // сохранил в локалстор
+         state.todos = array.filter((todos) => todos.id !== action.payload)
+         toJSON(state.todos, "actualNotes")
          console.log(state.todos);
       }
    }
