@@ -92,13 +92,13 @@ export function TheNote(props) {
             <span style={style.dateEvent}>{dateE}</span>
             <span style={style.timeEvent}>{timeE}</span>
             <span style={style.localEvent}>{location}</span>
-            <button style={style.btnDelete} onClick={
-               // (props) => {
-               //    dispatch(props.onClick)
-               // }
+            <button style={style.btnDelete} onClick={/* props.f */
                () => {
-                  dispatch(removeNotes(id))
+                  dispatch(props.f)
                }
+               // () => {
+               //    dispatch(removeNotes(id))
+               // }
             } >удалить</button>
             <span style={style.dateCreate}>дата создания: {dateCN}</span>
          </div>

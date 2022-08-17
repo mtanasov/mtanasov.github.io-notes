@@ -43,7 +43,7 @@ export const notes = createSlice({
          const array = toArray("actualNotes") //получил массив актуальных заметок
          const el = array.findIndex((el) => el.id === action.payload) // индекс элемента в массиве
          const arrayArchive = toArray("archiveNotes") //получил массив арх.заметок
-         arrayArchive.push(state.todos[el]) // добавил заметку в массив архива
+         arrayArchive.unshift(state.todos[el]) // добавил заметку в массив архива
          toJSON(arrayArchive, "archiveNotes") // сохранил в локалстор
          state.todos = array.filter((todos) => todos.id !== action.payload)
          toJSON(state.todos, "actualNotes")

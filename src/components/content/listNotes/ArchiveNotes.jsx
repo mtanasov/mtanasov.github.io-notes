@@ -2,11 +2,14 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Outlet, Link } from "react-router-dom";
 import { TheNote } from "./TheNote";
 import { useSelector } from "react-redux/es/exports";
+import { destroy } from "../../../reduxSlice/deleteSlice";
+import { useDispatch } from "react-redux";
+
 
 export function ArchiveNotes() {
-   const todoArchive = useSelector((state) => state.archive)
-   console.log(todoArchive)
-
+   const todoArchive = useSelector((state) => state.nt.archive)
+   // console.log(todoArchive)
+   const dispatch = useDispatch()
    const style = {
       main: {
          display: "flex",
@@ -27,13 +30,17 @@ export function ArchiveNotes() {
       },
       archiveLink: {
          textDecoration: "none",
-         color: "var(--titleClr)",
-         letterSpacing: "2px"
+         color: "black",
+         border: "2px solid red",
+
+         // color: "var(--titleClr)",
+         // letterSpacing: "2px"
       }
    }
 
    const Render = () => {
       if (localStorage.getItem("archiveNotes")) {
+         // console.log(JSON.parse(localStorage.getItem("archiveNotes")))
          return (
             // todoArchive.map((element) =>
             JSON.parse(localStorage.getItem("archiveNotes")).map((element) =>
@@ -45,7 +52,10 @@ export function ArchiveNotes() {
                      dateE={element.dateE}
                      placeE={element.placeE}
                      dateCN={element.dateCN}
-                     bookmark={element.bookmark} />
+                     bookmark={element.bookmark}
+                     // f={() => console.log("key")}
+                     f={destroy(element.id)}
+                  />
                </div>)
          )
       } else {
@@ -57,7 +67,7 @@ export function ArchiveNotes() {
       <div>
          <div style={style.main}>
             <Link to="/" style={style.archiveLink}> Actual</Link>
-            <div>Архив заметок</div>
+            <div>Список удаленных заметок</div>
             <input type="text" placeholder="поиск" style={style.search} />
          </div>
          <Render />

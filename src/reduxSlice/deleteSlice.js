@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toJSON, toArray } from "./ssd"
-
+import { toJSON } from "./ssd";
 const arrayDelNotes = JSON.parse(localStorage.getItem("archiveNotes"))
-console.log(arrayDelNotes);
+// console.log(arrayDelNotes);
 const initialState = {
    // archive: toArray("archiveNotes")
    archive: arrayDelNotes
@@ -14,7 +13,8 @@ export const archiveNotes = createSlice({
    initialState,
    reducers: {
       destroy: (state, action) => {
-         const array = toArray("archiveNotes")
+         console.log("delete");
+         const array = JSON.parse(localStorage.getItem("archiveNotes"))
          state.archive = array.filter((todos) => todos.id !== action.payload)
          toJSON(state.archive, "archiveNotes")
       }
