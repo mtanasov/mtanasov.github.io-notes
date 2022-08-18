@@ -23,7 +23,7 @@ export function CreateNotes() {
    const bgrClr = (event) => {
       iBookMark = event.target.style.backgroundColor
       console.log("backgrounColor: " + iBookMark)
-      event.target.style.border = "1px solid red"
+      // event.target.style.border = "1px solid red"
       return iBookMark
    }
 
@@ -45,12 +45,20 @@ export function CreateNotes() {
             <input id="dateEvent" type="date" ref={iDate} />
             <input id="timeEvent" type="time" ref={iTime} />
             <input id="locationEvent" type="text" ref={iEPlace} placeholder="место события" />
-            <span id="priority">
+            {/* <span id="priority">
                <div id="blue" style={{ backgroundColor: "var( --pColorBlue)" }} onClick={(event) => bgrClr(event)} ></div>
                <div id="yellow" style={{ backgroundColor: "var(--pColorYellow)" }} onClick={(event) => bgrClr(event)}></div>
                <div id="orange" style={{ backgroundColor: "var( --pColorOrange)" }} onClick={(event) => bgrClr(event)}></div>
                <div id="pink" style={{ backgroundColor: "var(--pColorPink)" }} onClick={(event) => bgrClr(event)}></div>
+            </span> */}
+
+            <span id="priority">
+               <span id='wrapperBlue' className='wrapper'><input type="radio" name='color' id="blue" style={{ backgroundColor: "var( --pColorBlue)" }} onChange={(event) => bgrClr(event)} /></span>
+               <span id='wrapperYellow' className='wrapper'><input type="radio" name='color' id="yellow" style={{ backgroundColor: "var(--pColorYellow)" }} onChange={(event) => bgrClr(event)} /></span>
+               <span id='wrapperOrange' className='wrapper'><input type="radio" name='color' id="orange" style={{ backgroundColor: "var( --pColorOrange)" }} onChange={(event) => bgrClr(event)} /></span>
+               <span id='wrapperPink' className='wrapper'><input type="radio" name='color' id="pink" style={{ backgroundColor: "var(--pColorPink)" }} onChange={(event) => bgrClr(event)} /></span>
             </span>
+
             <span id="buttonSave" onClick={
                () => {
                   dispatch(addNotes(
@@ -67,7 +75,11 @@ export function CreateNotes() {
                   clearInput()
                }
             }>  Сохранить </span>
-            <span id="buttonClear" onClick={() => { clearInput() }}> Очистить </span>
+            <span id="buttonClear" onClick={() => {
+               if (confirm("Очистить поля ввода?")) {
+                  clearInput()
+               }
+            }}> Очистить </span>
          </div>
 
       </div>

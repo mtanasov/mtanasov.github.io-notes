@@ -63,15 +63,40 @@
 
 #priority>* {
    display: inline-block;
-   width: 15px;
-   height: 15px;
+   width: 30px;
+   height: 20px;
    border: 1px solid black;
-   vertical-align: middle;
-   margin: 5px;
-   border-radius: 20px;
+   /* vertical-align: middle; */
+   margin: 0px 5px 0 5px;
+   border-radius: 15px;
 }
 
-#blue {
+#blue,
+#yellow,
+#orange,
+#pink {
+   margin: 4px 0px 0px 4px;
+   width: 12px;
+   height: 12px;
+}
+
+#wrapperBlue {
+   background-color: var(--pColorBlue);
+}
+
+#wrapperYellow {
+   background-color: var(--pColorYellow);
+}
+
+#wrapperOrange {
+   background-color: var(--pColorOrange);
+}
+
+#wrapperPink {
+   background-color: var(--pColorPink);
+}
+
+/* #blue {
    background-color: var(--pColorBlue);
 }
 
@@ -85,7 +110,7 @@
 
 #pink {
    background-color: var(--pColorPink);
-}
+} */
 
 #buttonSave {
    border: 2px solid gray;

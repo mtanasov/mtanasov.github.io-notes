@@ -9,10 +9,13 @@ import { removeNotes } from "../../../reduxSlice/saveSlice";
 
 
 import { arrNotes, toArray } from "../../../reduxSlice/ssd"
+import { memo } from "react";
+import { useState } from "react";
 
 
 export function ActualNotes() {
    const todo = useSelector((state) => state.note.todos)
+   const [inputValue, setInputValue] = useState("")
    const style = {
       main: {
          display: "flex",
@@ -45,26 +48,34 @@ export function ActualNotes() {
       }
    }
 
-   const Render = () => {
-      if (localStorage.getItem("actualNotes")) {
-         return (
-            todo.map((element) =>
-               <div key={element.id}>
-                  <TheNote
-                     id={element.id}
-                     txtN={element.txtN}
-                     timeE={element.timeE}
-                     dateE={element.dateE}
-                     placeE={element.placeE}
-                     dateCN={element.dateCN}
-                     bookmark={element.bookmark}
-                     f={removeNotes(element.id)} />
-               </div>)
-         )
-      } else {
-         return <> Тут будут ваши заметки</>
+   const filterByNotesText = todo.filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
+   // console.log(filter)
+
+   const Render = memo(
+      () => {
+         if (localStorage.getItem("actualNotes")) {
+            return (
+               // todo.map((element) =>
+               filterByNotesText.map((element) =>
+                  <div key={element.id}>
+                     <TheNote
+                        id={element.id}
+                        txtN={element.txtN}
+                        timeE={element.timeE}
+                        dateE={element.dateE}
+                        placeE={element.placeE}
+                        dateCN={element.dateCN}
+                        bookmark={element.bookmark}
+                        f={removeNotes(element.id)} />
+                  </div>)
+            )
+         } else {
+            return <> Тут будут ваши заметки</>
+         }
       }
-   }
+   )
+
+
 
    return (
       <div>
@@ -72,7 +83,9 @@ export function ActualNotes() {
             <Link to="/archive" style={style.archiveLink}> Archive</Link>
             {/* <div style={style.miniHeader}> */}
             <div> Сохраненные заметки </div>
-            <input type="text" placeholder="поиск" style={style.search} />
+            <input onChange={(event) => {
+               setInputValue(event.target.value)
+            }} placeholder="поиск" style={style.search} />
             {/* </div> */}
          </div>
          <Render />

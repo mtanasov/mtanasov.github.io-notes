@@ -7,10 +7,10 @@ export class Content extends React.Component {
 
    render() {
       return (
-         <>
+         <div >
             <CreateNotes />
             <ListNotes />
-         </>
+         </div>
       )
    }
 }

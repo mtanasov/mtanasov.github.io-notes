@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { toJSON } from "./ssd";
+import { toJSON, toArray } from "./ssd";
 const arrayDelNotes = JSON.parse(localStorage.getItem("archiveNotes"))
 // console.log(arrayDelNotes);
 const initialState = {
    // archive: toArray("archiveNotes")
    archive: arrayDelNotes
+
 
 }
 

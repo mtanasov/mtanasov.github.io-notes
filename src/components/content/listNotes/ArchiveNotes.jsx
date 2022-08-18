@@ -4,11 +4,14 @@ import { TheNote } from "./TheNote";
 import { useSelector } from "react-redux/es/exports";
 import { destroy } from "../../../reduxSlice/deleteSlice";
 import { useDispatch } from "react-redux";
+import { memo } from "react";
+import { useState } from "react";
 
 
 export function ArchiveNotes() {
    const todoArchive = useSelector((state) => state.nt.archive)
    // console.log(todoArchive)
+   const [inputValue, setInputValue] = useState("")
    const dispatch = useDispatch()
    const style = {
       main: {
@@ -38,37 +41,45 @@ export function ArchiveNotes() {
       }
    }
 
-   const Render = () => {
-      if (localStorage.getItem("archiveNotes")) {
-         // console.log(JSON.parse(localStorage.getItem("archiveNotes")))
-         return (
-            // todoArchive.map((element) =>
-            JSON.parse(localStorage.getItem("archiveNotes")).map((element) =>
-               <div key={element.id}>
-                  <TheNote
-                     id={element.id}
-                     txtN={element.txtN}
-                     timeE={element.timeE}
-                     dateE={element.dateE}
-                     placeE={element.placeE}
-                     dateCN={element.dateCN}
-                     bookmark={element.bookmark}
-                     // f={() => console.log("key")}
-                     f={destroy(element.id)}
-                  />
-               </div>)
-         )
-      } else {
-         return <> Тут будут ваши удаленные заметки</>
+   const filterByNotesText = JSON.parse(localStorage.getItem("archiveNotes")).filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
+   // const filterByNotesText = todoArchive.filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
+
+   const Render = memo(
+      () => {
+         if (localStorage.getItem("archiveNotes")) {
+            // console.log(JSON.parse(localStorage.getItem("archiveNotes")))
+            return (
+               // todoArchive.map((element) =>
+               // JSON.parse(localStorage.getItem("archiveNotes")).map((element) =>
+               filterByNotesText.map((element) =>
+                  <div key={element.id}>
+                     <TheNote
+                        id={element.id}
+                        txtN={element.txtN}
+                        timeE={element.timeE}
+                        dateE={element.dateE}
+                        placeE={element.placeE}
+                        dateCN={element.dateCN}
+                        bookmark={element.bookmark}
+                        // f={() => console.log("key")}
+                        f={destroy(element.id)}
+                     />
+                  </div>)
+            )
+         } else {
+            return <> Тут будут ваши удаленные заметки</>
+         }
       }
-   }
+   )
 
    return (
       <div>
          <div style={style.main}>
             <Link to="/" style={style.archiveLink}> Actual</Link>
             <div>Список удаленных заметок</div>
-            <input type="text" placeholder="поиск" style={style.search} />
+            <input onChange={(event) => {
+               setInputValue(event.target.value)
+            }} type="text" placeholder="поиск" style={style.search} />
          </div>
          <Render />
       </div>

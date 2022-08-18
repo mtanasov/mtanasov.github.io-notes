@@ -94,7 +94,9 @@ export function TheNote(props) {
             <span style={style.localEvent}>{location}</span>
             <button style={style.btnDelete} onClick={/* props.f */
                () => {
-                  dispatch(props.f)
+                  if (confirm("Удалить заметку?")) {
+                     dispatch(props.f)
+                  }
                }
                // () => {
                //    dispatch(removeNotes(id))
