@@ -7,6 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  cursor: url(../img/cursor.png);
 }
 
 code {
@@ -18,4 +19,26 @@ html,
 body,
 #root {
   height: 100%;
+
+  /* overflow: hidden; */
+}
+
+::-webkit-scrollbar:hover {
+  width: 15px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: var(--titleClr);
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bgrClrCreateNotes);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 5px;
+  border: 1px grey solid;
+  background-color: var(--pColorPink);
+  ;
 }

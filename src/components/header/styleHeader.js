@@ -2,7 +2,7 @@ import "../../colors.css"
 
 export const styleHeader = {
    display: "flex",
-   width: "100vw",
+   width: "100%",
    height: "50px",
    color: "var(--titleClr)",
    backgroundColor: "var(--headerBgrClr)",
@@ -10,6 +10,7 @@ export const styleHeader = {
    flexDirection: "row",
    alignItems: "center",
    fontFamily: "PoiretOne",
+   // position: "fixet"
 }
 
 

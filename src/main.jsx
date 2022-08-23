@@ -9,10 +9,9 @@ import { Provider } from 'react-redux'
 
 import { Header } from "./components/header/Header"
 import { Content } from "./components/content/Content"
-import { audio } from './audio/Audio'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div onClick={() => { console.log("должен прозвучать клик") }}>
+  <div>
     <Provider store={store}>
       <Header />
       <Content />

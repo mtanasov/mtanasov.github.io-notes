@@ -3,6 +3,8 @@ import { useState } from "react";
 import { arrNotes } from "../../../reduxSlice/ssd"
 import { removeNotes } from "../../../reduxSlice/saveSlice";
 import { useDispatch } from "react-redux";
+import useSound from "use-sound";
+import dS from "../../../audio/delete.mp3"
 
 export function TheNote(props) {
    const [text, setObj] = useState(props.txtN)
@@ -16,13 +18,15 @@ export function TheNote(props) {
 
    const dispatch = useDispatch()
 
+   const [dSound] = useSound(dS)
+
    const style = {
       main: {
          backgroundColor: "var(--headerBgrClr)",
          display: "flex",
          flexDirection: "column",
          alignItems: "center",
-         padding: "0px 0px 20px 0px",
+         padding: "0px 0px 10px 0px",
       },
       text: {
          backgroundColor: bookmark,
@@ -32,7 +36,7 @@ export function TheNote(props) {
          fontFamily: "Mono",
          lineHeight: "22px",
          padding: "10px 20px",
-         margin: "30px 20px 15px",
+         margin: "20px 20px 15px",
          borderRadius: "25px",
          border: "1px solid black",
          maxWidth: "1084px"
@@ -74,7 +78,8 @@ export function TheNote(props) {
          fontFamily: "PoiretOne",
          fontSize: "13px",
          fontWeight: "700",
-         marginLeft: "50px"
+         marginLeft: "50px",
+         cursor: "pointer"
       },
       dateCreate: {
          padding: "5px 15px",
@@ -96,6 +101,7 @@ export function TheNote(props) {
                () => {
                   if (confirm("Удалить заметку?")) {
                      dispatch(props.f)
+                     dSound()
                   }
                }
                // () => {
@@ -104,6 +110,7 @@ export function TheNote(props) {
             } >удалить</button>
             <span style={style.dateCreate}>дата создания: {dateCN}</span>
          </div>
+         <hr style={{ color: "red", maxWidth: "1084px", minWidth: "1084px" }} />
       </div>
    )
 }

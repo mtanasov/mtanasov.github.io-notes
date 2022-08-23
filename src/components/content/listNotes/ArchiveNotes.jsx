@@ -7,12 +7,15 @@ import { useDispatch } from "react-redux";
 import { memo } from "react";
 import { useState } from "react";
 
+import useSound from "use-sound";
+import iS from "../../../audio/click.mp3"
 
 export function ArchiveNotes() {
    const todoArchive = useSelector((state) => state.nt.archive)
    // console.log(todoArchive)
    const [inputValue, setInputValue] = useState("")
    const dispatch = useDispatch()
+   const [inp] = useSound(iS)
    const style = {
       main: {
          display: "flex",
@@ -20,7 +23,9 @@ export function ArchiveNotes() {
          justifyContent: "center",
          gap: "270px",
          fontFamily: "PoiretOne",
-         fontWeight: "700"
+         fontWeight: "700",
+         alignItems: "center"
+
       },
       search: {
          height: "20px",
@@ -28,13 +33,21 @@ export function ArchiveNotes() {
          padding: "0px 10px",
          border: "1px solid black",
          backgroundColor: "var(--bgrClrCreateNotes)",
-         fontFamily: "PoiretOne",
-         fontWeight: "700",
+         fontFamily: "Mono",
+         fontSize: "17px",
+         textAlign: "center"
       },
       archiveLink: {
          textDecoration: "none",
          color: "black",
-         border: "2px solid red",
+         border: "2px solid var(--titleClr)",
+         borderRadius: "20px",
+         height: "35px",
+         width: "35px",
+         backgroundImage: "url(../../../img/note.png)",
+         backgroundSize: "22px 20px",
+         backgroundRepeat: "no-repeat",
+         backgroundPosition: "8.5px 8px",
 
          // color: "var(--titleClr)",
          // letterSpacing: "2px"
@@ -75,9 +88,9 @@ export function ArchiveNotes() {
    return (
       <div>
          <div style={style.main}>
-            <Link to="/" style={style.archiveLink}> Actual</Link>
+            <Link to="/" style={style.archiveLink} > {/* Actual */}</Link>
             <div>Список удаленных заметок</div>
-            <input onChange={(event) => {
+            <input onKeyDown={() => inp()} onChange={(event) => {
                setInputValue(event.target.value)
             }} type="text" placeholder="поиск" style={style.search} />
          </div>
