@@ -11,7 +11,7 @@ import { Header } from "./components/header/Header"
 import { Content } from "./components/content/Content"
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <div>
+  <div className='main'>
     <Provider store={store}>
       <Header />
       <Content />

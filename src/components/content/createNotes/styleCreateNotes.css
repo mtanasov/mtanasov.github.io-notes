@@ -1,3 +1,5 @@
+@import url(./styleMediaCreateNotes.css);
+
 #createNotes {
    background-color: var(--headerBgrClr);
    display: flex;

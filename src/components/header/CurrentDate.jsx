@@ -51,7 +51,7 @@ export class CurrentDate extends React.Component {
       const getYear = String(date.getFullYear());
       const getTime = String(date.toLocaleTimeString())
       return (
-         <div style={styleCurrentDate.generalStyle} >
+         <div className="currentDate" style={styleCurrentDate.generalStyle} >
             <div style={styleCurrentDate.styleDay} >{getDay()} </div>
             <div style={styleCurrentDate.styleDayMonth} >{getDayMonth} </div>
             <div style={styleCurrentDate.styleMonth}>{getMonth()} </div>

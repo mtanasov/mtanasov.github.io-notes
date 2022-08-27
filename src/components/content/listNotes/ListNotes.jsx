@@ -10,7 +10,7 @@ import { ArchiveNotes } from "./ArchiveNotes";
 
 export function ListNotes(params) {
    return (
-      <div style={styleListNotes}>
+      <div className="listNotes" style={styleListNotes}>
          <BrowserRouter>
             <Routes>
                <Route path="/" element={<ActualNotes />} />

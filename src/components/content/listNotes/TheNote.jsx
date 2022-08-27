@@ -22,7 +22,7 @@ export function TheNote(props) {
 
    const style = {
       main: {
-         backgroundColor: "var(--headerBgrClr)",
+         backgroundColor: props.bgrColor, //"var(--headerBgrClr)"
          display: "flex",
          flexDirection: "column",
          alignItems: "center",
@@ -90,7 +90,7 @@ export function TheNote(props) {
    }
 
    return (
-      <div style={style.main}>
+      <div className="theNotes" style={style.main}>
          <div style={style.text}>
             {text}</div>
          <div style={style.groupe1}>

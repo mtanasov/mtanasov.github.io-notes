@@ -6,16 +6,6 @@ const initialState = {
    todos: toArray("actualNotes")
 }
 
-// const initialState = {
-//    txtN: "",
-//    dateE: "",
-//    timeE: "",
-//    placeE: "",
-//    bookmark: "",
-//    dateCN: "",
-//    id: "",
-// }
-
 export const notes = createSlice({
    name: "newNotes",
    initialState,
@@ -31,13 +21,7 @@ export const notes = createSlice({
             state.todos = array;
             state.todos.unshift(action.payload)
             toJSON(state.todos, "actualNotes")
-
          }
-         // state.note = action.payload 
-         // arrNotes.push(action.payload)
-         // state.todos.unshift(action.payload)
-         // toJSON(state.todos)
-         // console.log(action.payload);
       },
       removeNotes: (state, action) => { //новый массив без удаленной заметки
          const array = toArray("actualNotes") //получил массив актуальных заметок

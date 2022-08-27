@@ -5,8 +5,6 @@ const arrayDelNotes = JSON.parse(localStorage.getItem("archiveNotes"))
 const initialState = {
    // archive: toArray("archiveNotes")
    archive: arrayDelNotes
-
-
 }
 
 export const archiveNotes = createSlice({

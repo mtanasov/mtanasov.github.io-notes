@@ -9,7 +9,7 @@ import clickS from "../../audio/click.mp3"
 export function Header() {
    const [click] = useSound(clickS)
    return (
-      <div style={styleHeader} onClick={() => click()}  >
+      <div className="header" style={styleHeader} onClick={() => click()}  >
          <h1> Заметки</h1 >
          <div>
             <CurrentDate />

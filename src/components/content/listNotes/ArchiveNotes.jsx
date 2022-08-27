@@ -54,7 +54,7 @@ export function ArchiveNotes() {
       }
    }
 
-   const filterByNotesText = JSON.parse(localStorage.getItem("archiveNotes")).filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
+   // const filterByNotesText = JSON.parse(localStorage.getItem("archiveNotes")).filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
    // const filterByNotesText = todoArchive.filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
 
    const Render = memo(
@@ -63,8 +63,8 @@ export function ArchiveNotes() {
             // console.log(JSON.parse(localStorage.getItem("archiveNotes")))
             return (
                // todoArchive.map((element) =>
-               // JSON.parse(localStorage.getItem("archiveNotes")).map((element) =>
-               filterByNotesText.map((element) =>
+               JSON.parse(localStorage.getItem("archiveNotes")).map((element) =>
+                  // filterByNotesText.map((element) =>
                   <div key={element.id}>
                      <TheNote
                         id={element.id}
@@ -76,17 +76,19 @@ export function ArchiveNotes() {
                         bookmark={element.bookmark}
                         // f={() => console.log("key")}
                         f={destroy(element.id)}
+                        bgrColor={"hsl(73 3% 64% / 1"}
+                     // style={{ backgroundColor: "hsl(73 3% 64% / 1" }}
                      />
                   </div>)
             )
          } else {
-            return <> Тут будут ваши удаленные заметки</>
+            return <div style={{ textAlign: "center" }}> Тут будут ваши удаленные заметки</div>
          }
       }
    )
 
    return (
-      <div>
+      <div className="archiveNotes">
          <div style={style.main}>
             <Link to="/" style={style.archiveLink} > {/* Actual */}</Link>
             <div>Список удаленных заметок</div>
@@ -94,7 +96,7 @@ export function ArchiveNotes() {
                setInputValue(event.target.value)
             }} type="text" placeholder="поиск" style={style.search} />
          </div>
-         <Render />
+         <Render style={{ backgroundColor: "hsl(73 3% 64% / 1" }} />
       </div>
    )
 }

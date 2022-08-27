@@ -10,7 +10,7 @@ import "./listNotes/st.css"
 export const Content = () => {
    const [click] = useSound(clickS)
    return (
-      <div onClick={() => click()} className="actualMain" >
+      <div onClick={() => click()} className="content actualMain" >
          <CreateNotes />
          <ListNotes />
       </div>
