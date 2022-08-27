@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 
 import App from './App'
 import './index.css'
+// import "./"
+import "../src/styleMediaLESS1080.css"
 // import storeArchive from "./reduxSlice/storeArchive"
 import { store } from './reduxSlice/store'
 import { Provider } from 'react-redux'

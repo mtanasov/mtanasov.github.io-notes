@@ -26,7 +26,7 @@ export function TheNote(props) {
          display: "flex",
          flexDirection: "column",
          alignItems: "center",
-         padding: "0px 0px 10px 0px",
+         padding: "5px 0px 10px 0px",
       },
       text: {
          backgroundColor: bookmark,
@@ -36,10 +36,12 @@ export function TheNote(props) {
          fontFamily: "Mono",
          lineHeight: "22px",
          padding: "10px 20px",
-         margin: "20px 20px 15px",
+         margin: "5px 0px 15px",
          borderRadius: "25px",
          border: "1px solid black",
-         maxWidth: "1084px"
+         maxWidth: "90%",
+         // whiteSpace: "pre-wrap",
+
       },
       groupe1: {
          display: "flex",
