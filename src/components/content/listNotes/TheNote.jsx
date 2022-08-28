@@ -4,7 +4,8 @@ import { arrNotes } from "../../../reduxSlice/ssd"
 import { removeNotes } from "../../../reduxSlice/saveSlice";
 import { useDispatch } from "react-redux";
 import useSound from "use-sound";
-import dS from "../../../audio/delete.mp3"
+import dS from "../../../audio/delete.mp3";
+import "./styleTheNote.css"
 
 export function TheNote(props) {
    const [text, setObj] = useState(props.txtN)
@@ -92,14 +93,14 @@ export function TheNote(props) {
    }
 
    return (
-      <div className="theNotes" style={style.main}>
+      <div className="theNotes">
          <div style={style.text}>
             {text}</div>
-         <div style={style.groupe1}>
+         <div className="menuSavedNores" >
             <span style={style.dateEvent}>{dateE}</span>
             <span style={style.timeEvent}>{timeE}</span>
             <span style={style.localEvent}>{location}</span>
-            <button style={style.btnDelete} onClick={/* props.f */
+            <button className="btnDelNotes" onClick={/* props.f */
                () => {
                   if (confirm("Удалить заметку?")) {
                      dispatch(props.f)

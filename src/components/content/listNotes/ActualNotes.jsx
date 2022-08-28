@@ -143,7 +143,7 @@ export function ActualNotes(props) {
                <input className="actualSearch" onKeyDown={() => inp()} onBlur={() => { setFilterOn(false); console.log("filter off on event blur") }} onChange={(event) => { filterColor(setInputValue(event.target.value)) }} placeholder="поиск" />
                от<input className="actualDateEvent" type="date" ref={dateStart} />
                до<input className="actualDateEvent" type="date" ref={dateEnd} />
-               <div className="actualBtnFilter" onClick={() => { filterDate() }} > Ф </div>
+               <div className="actualBtnFilter" onClick={() => { filterDate() }} > </div>
 
             </div>
          </div>

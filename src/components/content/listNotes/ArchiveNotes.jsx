@@ -21,7 +21,7 @@ export function ArchiveNotes() {
          display: "flex",
          padding: "5px 0px",
          justifyContent: "center",
-         gap: "270px",
+         // gap: "270px",
          fontFamily: "PoiretOne",
          fontWeight: "700",
          alignItems: "center"
@@ -88,8 +88,8 @@ export function ArchiveNotes() {
    )
 
    return (
-      <div className="archiveNotes">
-         <div style={style.main}>
+      <div >
+         <div className="archiveNotes" style={style.main}>
             <Link to="/" style={style.archiveLink} > {/* Actual */}</Link>
             <div>Список удаленных заметок</div>
             <input onKeyDown={() => inp()} onChange={(event) => {

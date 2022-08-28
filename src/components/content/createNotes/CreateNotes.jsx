@@ -49,7 +49,7 @@ export function CreateNotes() {
          <div id="settings">
             <div className="settingGroupe1">
                <input id="dateEvent" type="date" ref={iDate} />
-               <input id="timeEvent" type="time" ref={iTime} />
+               <input id="timeEvent" type="time" ref={iTime} maxLength="15" />
                <input id="locationEvent" type="text" ref={iEPlace} placeholder="место события" />
             </div>
             <div className="settingGroupe2">
