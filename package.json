@@ -1,4 +1,5 @@
 {
+  "homepage": "https://nameaccount.github.io/namerepository",
   "name": "notes",
   "private": true,
   "version": "0.0.0",
@@ -6,10 +7,13 @@
     "dev": "vite --open",
     "build": "vite build",
     "preview": "vite preview",
-    "tailwind": "npx tailwindcss -i ./src/tailwind/input.css -o ./src/tailwind/output.css --watch"
+    "tailwind": "npx tailwindcss -i ./src/tailwind/input.css -o ./src/tailwind/output.css --watch",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.4",
+    "gh-pages": "^4.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^8.0.2",

@@ -1,0 +1,119 @@
+@media screen
+
+/* and (min-width: 631px) */
+and (max-width: 1080px) {
+   h1 {
+      margin: 0 5px;
+   }
+
+   .actualTitle {
+      border-top: 1px solid grey;
+      border-bottom: 1px solid grey;
+      gap: 10px;
+      /* flex-direction: column; */
+   }
+
+   #filterColors {
+      border-left-color: transparent;
+      padding-left: 5px;
+      display: flex;
+   }
+
+   .title {
+      width: 100px;
+      padding-left: 5px;
+      text-align: center;
+   }
+
+   .actualDateEvent {
+      width: 105px;
+   }
+
+   .actualSearch {
+      width: 50px;
+   }
+
+   #textCreateNotes {
+      width: 85%
+   }
+
+   .settingFilter {
+      flex-wrap: wrap;
+   }
+
+   .menuSavedNores {
+      gap: 5px;
+   }
+
+   .archiveNotes {
+      gap: 50px;
+   }
+}
+
+@media screen
+
+/*  and (min-width: 501px)  */
+and (max-width: 630px) {
+   #textCreateNotes {
+      width: 75%
+   }
+
+   .actualTitle {
+      gap: 0px;
+   }
+
+   .menuSavedNores {
+      flex-wrap: wrap;
+   }
+
+   .btnDelNotes {
+      margin-left: 0px;
+   }
+
+   .menuSavedNores {
+      gap: 5px;
+   }
+
+   .archiveNotes {
+      gap: 15px;
+   }
+}
+
+@media screen and (max-width: 500px) {
+   .header {
+      flex-wrap: wrap;
+      padding-bottom: 10px;
+   }
+
+   #textCreateNotes {
+      padding-top: 10px;
+   }
+
+   .actualMain {
+      padding: 10px 0 0 0;
+      background-color: var(--headerBgrClr);
+   }
+
+   .menuSavedNores {
+      gap: 5px;
+   }
+
+   .archiveNotes {
+      gap: 5px;
+      flex-direction: column;
+   }
+}
+
+@media screen and (min-width: 1081px) {
+   .btnDelNotes {
+      margin-left: 50px;
+   }
+
+   .menuSavedNores {
+      gap: 15px;
+   }
+
+   .archiveNotes {
+      gap: 270px;
+   }
+}

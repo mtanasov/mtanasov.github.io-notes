@@ -1,0 +1,31 @@
+.btnDelNotes {
+   padding: 5px 15px;
+   border: 1px solid black;
+   background-color: hsl(354 95% 85% / 1);
+   border-radius: 10px;
+   font-family: "PoiretOne";
+   font-size: 13px;
+   font-weight: 700;
+   /* margin-left: 50px; */
+   cursor: pointer;
+}
+
+.theNotes {
+   background-color: var(--headerBgrClr);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 5px 0px 10px 0px,
+}
+
+.menuSavedNores {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   /* gap: 15px; */
+   max-width: 1084px;
+   font-family: "PoiretOne";
+   font-weight: 700;
+   font-size: 13px;
+   justify-content: center;
+}

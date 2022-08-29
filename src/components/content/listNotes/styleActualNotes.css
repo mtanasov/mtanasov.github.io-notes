@@ -1,0 +1,120 @@
+.actualMain {
+   overflow-y: none;
+}
+
+.actualNotes {
+   padding-top: 10px;
+}
+
+.actualTitle {
+   display: flex;
+   padding: 5px 0px;
+   justify-content: center;
+   gap: 30px;
+   font-family: "PoiretOne";
+   font-weight: 700;
+   align-items: center;
+   flex-wrap: wrap;
+}
+
+
+
+.archiveLink {
+   text-decoration: none;
+   color: black;
+   border: 2px solid red;
+   border-radius: 20px;
+   height: 35px;
+   width: 35px;
+   background-image: url(../../../img/archive.png);
+   background-size: 20px 20px;
+   background-repeat: no-repeat;
+   background-position: 7px 7px;
+}
+
+.actualSearch {
+   height: 20px;
+   border-radius: 8px;
+   padding: 0px 10px;
+   border: 1px solid black;
+   background-color: var(--bgrClrCreateNotes);
+   font-family: "Mono";
+   font-size: 17px;
+   text-align: center;
+}
+
+.actualDateEvent {
+   padding: 0px 5px 0px 8px;
+   border: 1px solid black;
+   background-color: var(--bgrClrCreateNotes);
+   border-radius: 8px;
+   cursor: pointer;
+   font-family: "PoiretOne";
+   font-size: 14px;
+   font-weight: 700;
+}
+
+.actualBtnFilter {
+   /* border: 3px solid white; */
+   padding: 3px;
+   width: 18px;
+   height: 18px;
+   /* background-color: var(--bgrClrCreateNotes); */
+   background-image: url(../../../../img/f.jpg);
+   background-size: 100%;
+   border-radius: 5px;
+}
+
+.settingFilter {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+
+}
+
+#filterColors {
+   /* border-left: 1px solid black; */
+   padding-left: 15px;
+}
+
+#filterColors>* {
+   display: inline-block;
+   width: 15px;
+   height: 15px;
+   border: 1px solid black;
+   /* vertical-align: middle; */
+   margin: 0px 5px 0 5px;
+   border-radius: 15px;
+
+}
+
+#resetFilterColors {
+   background: linear-gradient(to right, var(--pColorBlue) 0% 24%, var(--pColorYellow) 26% 49%, var(--pColorOrange) 50% 74%, var(--pColorPink) 75% 100%)
+}
+
+/* #blue,
+#yellow,
+#orange,
+#pink {
+   margin: 4px 0px 0px 4px;
+   width: 12px;
+   height: 12px;
+} */
+
+#wrapperBlue {
+   background-color: var(--pColorBlue);
+}
+
+#wrapperYellow {
+   background-color: var(--pColorYellow);
+}
+
+#wrapperOrange {
+   background-color: var(--pColorOrange);
+}
+
+#wrapperPink {
+   background-color: var(--pColorPink);
+}
