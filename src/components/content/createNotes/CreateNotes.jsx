@@ -23,7 +23,7 @@ export function CreateNotes() {
    let iDate = React.createRef();
    let iTime = React.createRef();
    let iEPlace = React.createRef();
-   let iBookMark = "hsl(58deg 73% 78%)";
+   let iBookMark = "var(--pColorYellow)";
 
    const bgrClr = (event) => {
       iBookMark = event.target.style.backgroundColor
