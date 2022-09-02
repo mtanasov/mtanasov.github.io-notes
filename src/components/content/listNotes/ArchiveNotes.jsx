@@ -6,6 +6,7 @@ import { destroy } from "../../../reduxSlice/deleteSlice";
 import { useDispatch } from "react-redux";
 import { memo } from "react";
 import { useState } from "react";
+import "./styleArchiveNotes.css";
 
 import useSound from "use-sound";
 import iS from "../../../audio/click.mp3"
@@ -16,43 +17,6 @@ export function ArchiveNotes() {
    const [inputValue, setInputValue] = useState("")
    const dispatch = useDispatch()
    const [inp] = useSound(iS)
-   const style = {
-      main: {
-         display: "flex",
-         padding: "5px 0px",
-         justifyContent: "center",
-         // gap: "270px",
-         fontFamily: "PoiretOne",
-         fontWeight: "700",
-         alignItems: "center"
-
-      },
-      search: {
-         height: "20px",
-         borderRadius: "8px",
-         padding: "0px 10px",
-         border: "1px solid black",
-         backgroundColor: "var(--bgrClrCreateNotes)",
-         fontFamily: "Mono",
-         fontSize: "17px",
-         textAlign: "center"
-      },
-      archiveLink: {
-         textDecoration: "none",
-         color: "black",
-         border: "2px solid var(--titleClr)",
-         borderRadius: "20px",
-         height: "35px",
-         width: "35px",
-         backgroundImage: "url(../../../img/note.png)",
-         backgroundSize: "22px 20px",
-         backgroundRepeat: "no-repeat",
-         backgroundPosition: "8.5px 8px",
-
-         // color: "var(--titleClr)",
-         // letterSpacing: "2px"
-      }
-   }
 
    // const filterByNotesText = JSON.parse(localStorage.getItem("archiveNotes")).filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
    // const filterByNotesText = todoArchive.filter((n) => { return n.txtN.toLowerCase().includes(inputValue.toLowerCase()) })
@@ -89,12 +53,12 @@ export function ArchiveNotes() {
 
    return (
       <div >
-         <div className="archiveNotes" style={style.main}>
-            <Link to="/" style={style.archiveLink} > {/* Actual */}</Link>
+         <div className="archiveNotes" >
+            <Link className="archiveLink" to="/" > {/* Actual */}</Link>
             <div>Список удаленных заметок</div>
-            <input onKeyDown={() => inp()} onChange={(event) => {
+            <input className="archiveSearch" onKeyDown={() => inp()} onChange={(event) => {
                setInputValue(event.target.value)
-            }} type="text" placeholder="поиск" style={style.search} />
+            }} type="text" placeholder="поиск" />
          </div>
          <Render style={{ backgroundColor: "hsl(73 3% 64% / 1" }} />
       </div>
