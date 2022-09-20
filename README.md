@@ -1,3 +1,3 @@
 # mtanasov.github.io-notes
-это репозиторий с файлами разработки приложения на React JS. приложение рабочее.
-контроль состояния приложения - Redux toolkit, сборщик - Vite
+this is a repository with React JS application development files. application is working.
+application state control - Redux toolkit, collector - Vite
